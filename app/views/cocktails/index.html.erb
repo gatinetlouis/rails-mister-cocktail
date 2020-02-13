@@ -16,10 +16,16 @@
             <%= cocktail.ingredients.exists? ? cocktail.ingredients.first.name : 'No ingredient yet' %>
             <%= cocktail.ingredients.exists? ? cocktail.doses.first.description : 'No doses yet'%>
           </p>
-          <%= link_to 'Add an ingredient/dose pair here', new_cocktail_dose_path(cocktail) unless cocktail.ingredients.exists? %>
-          <%= link_to 'More details', cocktail_path(cocktail), class: 'btn btn-success'%>
-          <%= link_to 'Modify the name', edit_cocktail_path(cocktail), class: 'btn btn-primary'%>
-          <%= link_to 'Delete', cocktail_path(cocktail), method: :delete, data: { confirm: "Sure ?" }, class: 'btn btn-warning' %>
+          <div class='list-inline'>
+            <%= link_to 'Add an ingredient/dose pair here', new_cocktail_dose_path(cocktail), class: 'btn btn-info'  %>
+            <!-- DOESNT WORK ABOVE -->
+            <i class="fas fa-trash-alt"></i>
+            <%= link_to 'More details', cocktail_path(cocktail), class: 'btn btn-success'%>
+            <%= link_to 'Modify the name', edit_cocktail_path(cocktail), class: 'btn btn-primary'%>
+            <div class="card-delete">
+              <%= link_to 'Delete', cocktail_path(cocktail), method: :delete, data: { confirm: "Sure ?" }, class: 'btn btn-warning' %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
