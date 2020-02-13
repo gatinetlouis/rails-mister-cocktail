@@ -1,3 +1,8 @@
-<h1>Page of a specific cocktail named <strong><%= @cocktail.name %></strong>  !!</h1>
 
-<%= link_to 'Back to all cocktails', cocktails_path  %>
+<div class="container">
+
+<h1>Page of a specific cocktail named <strong><%= @cocktail.name %></strong>  !!</h1>
+<p><%= link_to 'Back to all cocktails', cocktails_path  %></p>
+<p><%= link_to 'See the recipe', cocktail_doses_path(@cocktail)  %></p>
+</div>
+
