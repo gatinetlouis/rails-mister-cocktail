@@ -1,0 +1,10 @@
+<h1>all doses for the <%= @cocktail.name %> :</h1>
+<h5><%= link_to 'Add a new dose here', new_cocktail_dose_path(@cocktail)   %></h4>
+
+<ul>
+  <% @doses.each do |dose| %>
+  <li>
+    <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %>
+  </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+
+
+<div class="container">
+<h1>new dose for the cocktail named <%= @cocktail.name %> </h1>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit %>
+  <% end %>
+</div>
+
+
+  <%#= f.input :language, collection: User::LANGUAGE, prompt: :translate %>

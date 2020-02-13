@@ -1,0 +1,11 @@
+<h1>Page of cocktails</h1>
+<%= link_to 'Create your own cocktail', new_cocktail_path  %>
+<% @cocktails.each do |cocktail| %>
+<div class= 'border'>
+<h2> name : <%= cocktail.name %></h2>
+<p> ingredients : <%= cocktail.ingredients.exists? ? cocktail.ingredients.first.name : 'No ingredient yet' %></p>
+<p> dose : <%= cocktail.ingredients.exists? ? cocktail.doses.first.description : 'No doses yet'%></p>
+<p><%= link_to 'Add an ingredient/dose pair here', new_cocktail_dose_path(cocktail) unless cocktail.ingredients.exists? %></p>
+<p><%= link_to 'More details', cocktail_path(cocktail)%></p>
+</div>
+<% end %>
