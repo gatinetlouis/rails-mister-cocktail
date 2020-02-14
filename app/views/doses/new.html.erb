@@ -1,12 +1,16 @@
 
 
 <div class="container">
-<h1>new dose for the cocktail named <%= @cocktail.name %> </h1>
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit %>
-  <% end %>
+  <h3 class= 'text-center mt-5'>Create a dose for <span class='font-italic'><%= @cocktail.name %></span>  </h3>
+  <div class="row justify-content-center">
+    <div class="col-6 m-5">
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.submit :class => 'btn btn-success'  %>
+        <% end %>
+    </div>
+  </div>
 </div>
 
 

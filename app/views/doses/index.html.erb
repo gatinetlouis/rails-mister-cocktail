@@ -1,17 +1,29 @@
 
+
 <div class="container">
-
-<h1>all doses for the <%= @cocktail.name %> :</h1>
-<h5> <%= link_to 'Back to the cocktail', cocktail_path(@cocktail)   %></h5>
-<h5><%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail)   %></h4>
-
-<ul>
-  <% @doses = @doses.select { |dose| dose.cocktail_id == @cocktail.id} %>
-  <% @doses.each do |dose| %>
-  <li>
-    <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %>
-    <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "Sure ?" }  %>
-  </li>
-  <% end %>
-</ul>
+  <div class="row justify-content-center mt-5">
+    <div class="col-10">
+      <div class="d-flex">
+        <div class='m-3 text-center'>
+          <h5><%= link_to 'New dose', new_cocktail_dose_path(@cocktail), class:'btn btn-info'   %></h4>
+        </div>
+        <div>
+          <h3 class="m-3">All you need to prepare the <strong> super </strong> <%= @cocktail.name %> is :</h3>
+          <ul>
+            <% @doses = @doses.select { |dose| dose.cocktail_id == @cocktail.id} %>
+            <% @doses.each do |dose| %>
+            <li class= 'm-2'>
+              <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %>
+              <%= link_to dose_path(dose), method: :delete, data: { confirm: "Sure ?" } do %>
+              <i class="fas fa-trash-alt text-secondary ml-2"></i>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
