@@ -15,5 +15,6 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import 'bootstrap';
-
-console.log('Hello World from Webpacker')
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();
+console.log('Regarde pas ma console!')
