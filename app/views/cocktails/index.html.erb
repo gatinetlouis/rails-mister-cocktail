@@ -34,8 +34,6 @@
             <%= cocktail.ingredients.exists? ? cocktail.doses.first.description : 'No doses yet'%>
           </p>
             <%= link_to 'More details', cocktail_path(cocktail), class: 'btn btn-success w-100'%>
-
-
         </div>
       </div>
     <% end %>
